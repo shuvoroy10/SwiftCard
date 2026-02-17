@@ -54,9 +54,9 @@
               tabindex="0"
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-black"
             >
-              <li><a href="#">Home</a></li>
+              <li><a onclick="threeProducts()">Home</a></li>
               <li>
-                <a href="#">Product</a>
+                <a onclick="allProducts()">Product</a>
               </li>
               <li><a href="#about-shop">About</a></li>
               <li><a href="#">Contact</a></li>
@@ -67,9 +67,9 @@
 
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
-            <li><a href="#">Home</a></li>
+            <li><a onclick="threeProducts()">Home</a></li>
             <li>
-              <a href="#">Product</a>
+              <a onclick="allProducts()">Product</a>
             </li>
             <li><a href="#about-shop">About</a></li>
             <li><a href="#">Contact</a></li>
@@ -81,7 +81,7 @@
         </div>
       </div>
       <!-- Hero Section -->
-      <div class="relative">
+      <div class="relative" id="hero-section">
         <img
           class="w-full h-[600px] object-cover"
           src="./Assets/banner-image.png"
@@ -106,7 +106,7 @@
     </header>
     <main>
       <!-- Why you Choose Section -->
-      <section class="bg-black/10">
+      <section class="bg-black/10" id="choose-section">
         <div class="p-10">
           <h1 class="text-center font-bold text-4xl">Why Choose Us</h1>
           <p class="text-center">
@@ -158,10 +158,25 @@
           </div>
         </div>
       </section>
-      <section class="container mx-auto">
+      <!-- Three Products -->
+      <section class="container mx-auto" id="three-products">
         <h1 class="text-start font-bold text-4xl p-10">Trending Now</h1>
-
-        <!-- Products -->
+        <div class="container mx-auto">
+          <div
+            id="3products-container"
+            class="grid grid-cols-1 lg:grid-cols-3 gap-5 p-10"
+          ></div>
+        </div>
+      </section>
+      <!-- All Products -->
+      <section class="container mx-auto" id="all-products">
+        <h1 class="text-center font-bold text-4xl p-10">Our Products</h1>
+        <!-- Category -->
+        <div class="flex max-w-[800px] justify-between mx-auto" id="category-container">
+          <div>
+            <button class="btn btn-dash btn-success w-full my-1 justify-start category-btn" onclick="allProducts()">All</button>
+          </div>
+        </div>
         <div class="container mx-auto">
           <div
             id="products-container"
@@ -171,7 +186,7 @@
       </section>
     </main>
     <!-- Footer -->
-    <div class="bg-black text-gray-300 px-8 py-12">
+    <div id="footer" class="bg-black text-gray-300 px-8 py-12">
       <footer class="container mx-auto p-10">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-7">
           <div class="flex justify-start lg:justify-center items-center">

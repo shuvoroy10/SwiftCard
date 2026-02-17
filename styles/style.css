@@ -4,6 +4,9 @@
 *{
   font-family: "Inter", sans-serif;
 }
+.hiddan{
+  display: none;
+}
 
 li > a {
     color: black;
