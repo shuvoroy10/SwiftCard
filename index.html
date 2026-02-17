@@ -91,7 +91,7 @@
         <div class="absolute inset-0 bg-black/60"></div>
 
         <div class="absolute inset-0 flex items-center container mx-auto px-6">
-          <div class="text-white">
+          <div class="text-white p-10">
             <h1 class="text-5xl font-bold">Best Collection For You</h1>
             <p class="text-white/65">
               Discover the latest trends in fashion, electronics, and more. Shop
@@ -158,7 +158,79 @@
           </div>
         </div>
       </section>
+      <section class="container mx-auto">
+        <h1 class="text-start font-bold text-4xl p-10">Trending Now</h1>
+
+        <!-- Products -->
+        <div class="container mx-auto">
+          <div
+            id="products-container"
+            class="grid grid-cols-1 lg:grid-cols-3 gap-5 p-10"
+          ></div>
+        </div>
+      </section>
     </main>
+    <!-- Footer -->
+    <div class="bg-black text-gray-300 px-8 py-12">
+      <footer class="container mx-auto p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-7">
+          <div class="flex justify-start lg:justify-center items-center">
+            <div>
+              <h3 class="text-blue-600 text-xl font-semibold mb-2">SwiftCard</h3>
+              <p class="text-sm">
+                Your one-stop shop for all your fashion and lifestyle needs.
+                Quality products, fast delivery, and excellent support.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-start lg:justify-center items-center">
+            <div>
+              <h4 class="text-white font-semibold mb-2">QUICK LINKS</h4>
+              <ul class="space-y-1 text-sm">
+                <li>Home</li>
+                <li>Products</li>
+                <li>About</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-start lg:justify-center items-center">
+            <div>
+              <h4 class="text-white font-semibold mb-2">Support</h4>
+              <ul class="space-y-1 text-sm">
+                <li>FAQ</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>Privacy Pilicy</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex justify-start lg:justify-center items-center">
+            <div>
+              <h4 class="text-white font-semibold mb-2">SUBSCRIBE TO OUR NEWSLETTER</h4>
+              <p class="text-sm">The latest news, articles, and resources,<br class="block md:hidden" /> sent to to your inbox weekly.</p>
+              <form class="flex flex-col lg:flex-row gap-4">
+                <input class="bg-white p-2 rounded-sm text-black" type="email" name="" id="" placeholder="Enter your email">
+                <input class="btn bg-blue-500 text-white" type="submit" value="Subscribe">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-left md:text-center text-white text-sm mt-8 flex justify-between">
+          <h3>© 2025 SwiftCard,Inc. All rights reserved
+          <br class="block md:hidden" />
+          All rights reserved.</h3>
+          <div>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-solid fa-inbox"></i>
+            <i class="fa-brands fa-discord"></i>
+          </div>
+        </div>
+      </footer>
+    </div>
     <script src="scripts/scripts.js"></script>
   </body>
 </html>
