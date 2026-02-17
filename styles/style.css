@@ -7,7 +7,11 @@
 .hiddan{
   display: none;
 }
-
+.active{
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
 li > a {
     color: black;
 }
