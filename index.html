@@ -26,7 +26,7 @@
     <header>
       <!-- Navbar -->
       <div
-        class="navbar bg-base-100 shadow-sm bg-base-100 px-2 lg:px-20 text-white"
+        class="navbar bg-base-100 shadow-sm bg-base-100 px-2 lg:px-20 text-white relative"
       >
         <div class="navbar-start">
           <div class="dropdown">
@@ -62,7 +62,11 @@
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
-          <a class="btn btn-ghost text-xl text-blue-700" onclick="threeProducts()">SwiftCard</a>
+          <a
+            class="btn btn-ghost text-xl text-blue-700"
+            onclick="threeProducts()"
+            >SwiftCard</a
+          >
         </div>
 
         <div class="navbar-center hidden lg:flex">
@@ -77,7 +81,17 @@
         </div>
 
         <div class="navbar-end">
-          <i class="fa-solid fa-cart-arrow-down text-black"></i>
+          <i
+            class="fa-solid fa-cart-arrow-down text-black"
+            onclick="cartView()"
+          ></i
+          ><span id="cart-count">0</span>
+          <div
+            id="cart-view"
+            class="absolute top-15 text-red-700 font-bold z-1 bg-black p-5"
+          >
+            
+          </div>
         </div>
       </div>
       <!-- Hero Section -->
@@ -193,8 +207,7 @@
         </div>
       </section>
       <!-- Modal -->
-      <section id="product-details">
-      </section>
+      <section id="product-details"></section>
     </main>
     <!-- Footer -->
     <div id="footer" class="bg-black text-gray-300 px-8 py-12">

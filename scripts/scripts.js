@@ -3,6 +3,7 @@ const threeProducts = () => {
   document.getElementById("choose-section").classList.remove("hiddan");
   document.getElementById("three-products").classList.remove("hiddan");
   document.getElementById("all-products").classList.add("hiddan");
+  document.getElementById("cart-view").classList.add("hiddan");
 
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -59,7 +60,7 @@ const threeProducts = () => {
 };
 threeProducts();
 
-// three products
+// all products
 const allProducts = () => {
   //   document.getElementById("hero-section").style.display = "none";
   //   document.getElementById("choose-section").style.display = "none";
@@ -69,6 +70,7 @@ const allProducts = () => {
   document.getElementById("choose-section").classList.add("hiddan");
   document.getElementById("three-products").classList.add("hiddan");
   document.getElementById("all-products").classList.remove("hiddan");
+  document.getElementById("cart-view").classList.add("hiddan");
 
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -227,30 +229,31 @@ document.getElementById("all-category").addEventListener("click", () => {
 });
 
 // Category-color-other
-const removeActive =()=>{
+const removeActive = () => {
   const categoryBtnAll = document.querySelectorAll(".category-btn");
   categoryBtnAll.forEach((btn) => btn.classList.remove("active"));
   const allCategoryBtn = document.getElementById("all-category");
   allCategoryBtn.classList.remove("active");
-}
+};
 
 // productDetails
 const productDetails = (id) => {
-    const url = `https://fakestoreapi.com/products/${id}`;
+  const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        const product = data;
-        const productId = product.id;
-        const productPrice = product.price;
-        const productCategory = product.category;
-        const productDescription = product.description;
-        const productName = product.title;
-        const imgName = product.image;
-        const productRate = product.rating.rate;
-        const productCount = product.rating.count;
-        const productsDetailsContainer = document.getElementById("product-details");
-        productsDetailsContainer.innerHTML = `
+      const product = data;
+      const productId = product.id;
+      const productPrice = product.price;
+      const productCategory = product.category;
+      const productDescription = product.description;
+      const productName = product.title;
+      const imgName = product.image;
+      const productRate = product.rating.rate;
+      const productCount = product.rating.count;
+      const productsDetailsContainer =
+        document.getElementById("product-details");
+      productsDetailsContainer.innerHTML = `
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
           <div class="modal-box h-[700px]">
             <div class="bg-white shadow-lg rounded-2xl h-[600px] absolute">
@@ -269,7 +272,7 @@ const productDetails = (id) => {
                   <h4 class="text-balck"><span id="price-${productId}"><i class="fa-solid fa-star text-yellow-500"></i>${productRate}(${productCount})</span></h4>
                   <h4 class="text-green-600">$<span>500</span></h4>
                 </div>
-                <button class="btn btn-success rounded-2xl w-full">Add to Cart</button>
+                <button class="btn btn-success rounded-2xl w-full" onclick="addToCardAll(${productId})">Add to Cart</button>
               </div>
             </div>
             <div class="modal-action">
@@ -279,7 +282,50 @@ const productDetails = (id) => {
             </div>
           </div>
         </dialog>
-        `
-        my_modal_5.showModal()
-    })
+        `;
+      my_modal_5.showModal();
+    });
+};
+
+// Add to cart
+let cart = [];
+
+function addToCardAll(id) {
+  document.getElementById("cart-view").classList.add("hiddan");
+  alert("The Product added to cart");
+  const url = `https://fakestoreapi.com/products/${id}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const selectProduct = {
+        id: data.id,
+        name: data.title,
+        price: data.price,
+      };
+
+      cart.push(selectProduct);
+
+      const showCart = document.getElementById("cart-count");
+      showCart.innerHTML = `
+        <p class="text-black">${cart.length}</p>
+        `;
+      // const showcartDiv = document.createElement("div");
+      // showcartDiv.innerHTML = `
+      // <p>${cart.length}</p>
+      // `
+      // showCart.append(showcartDiv);
+    });
 }
+
+const cartView = () => {
+  document.getElementById("cart-view").classList.remove("hiddan");
+  const cartContainer = document.getElementById("cart-view");
+  cartContainer.innerHTML = "";
+
+  for (let car of cart) {
+    const li = document.createElement("li");
+    li.innerText = car.name;
+    cartContainer.appendChild(li);
+  }
+};
